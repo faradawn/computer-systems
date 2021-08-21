@@ -28,9 +28,9 @@ int negate(int x){ // DONE
   return ~x + 1;
 }
 
-int isAsciiDigit(int x){
-  int a = x + ~0x30;
-  int zeroToSeven = !(a >> 3);
+int isAsciiDigit(int x){ // DONE
+  int a = x + ~0x30 + 1; // 减去 0x30
+  int zeroToSeven = !(a >> 3); // 判断是否三十以上，顺便0-7
   return zeroToSeven | !(a^0x38) | !(a^0x39);
 }
 int main(){
