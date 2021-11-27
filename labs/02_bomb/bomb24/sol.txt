@@ -1,0 +1,123 @@
+This art/sport provides interpretive equestrians a chance cs154
+2 6 18 53 158 473
+3 4025
+1 11
+12 3 
+2 5 6 3 4 1
+
+secret: 6 inputs
+Qipfojy9Cju
+
+每一次check secret phase
+b *0x401b21
+
+
+第六题：
+
+x/24w 0x604320
+x/24w 0x604330
+x/24w 0x604340
+
+0x7fffffffdb60: 6308672 0       6308688 0
+0x7fffffffdb70: 6308656 0       6308640 0
+0x7fffffffdb80: 6308704 0       6308720 0
+
+
+
+
+
+
+
+
+
+
+
+
+第五题：找数组48
+输入一 <= 16
+
+0x4029c0 <array.3611>:  20      
+8       16      24       5 (4)
+10      14      13       0 (8)    
+4       22      2       19 (12)     
+23      18      21      15  (16)    
+12      6       17       1  (20)      
+11      9       3       7   (24)    
+0       0       0       
+
+
+
+int phase5(int di){
+    int arr[30] = {20,8,16,24,5,10,14,13,0,4,22,2,19,23,18,21,15,12,6,17,1,11,9,3,7};
+    int i = 0;
+    int ecx = 0;
+    int eax = di;
+    
+    do{
+        i ++;
+        ecx += eax;
+        eax = arr[eax];
+    }while(eax != di);
+    printf("%d", i);
+    return ecx;
+
+}
+
+
+
+
+
+第四题：找到11
+第一个数<=14
+第二个数等于11
+
+14 -> 45
+13 -> 31
+12 -> 43
+11 -> 18
+10 -> 37
+9 -> 27
+35
+7
+21
+15
+19
+10
+13
+1 -> 11
+
+int func4(int di, int si, int dx){
+    ax = dx - si;
+    bx = ax;
+    bx = bx>>31;
+    ax = bx + ax;
+    ax = ax>>1;
+    bx = ax + si;
+    printf("cmp bx %d\n", bx);
+    if(bx <= di){
+        ax = bx;
+        if(bx >= di){
+            ax = ax + bx;
+            return ax;
+        }else{
+            si = bx + 1;
+            printf("recur1 bx %d, si %d, dx %d\n", bx, si, dx);
+            int r = func4(di, si, dx);
+            return ax + bx;
+        }
+        
+    } else {
+        dx = bx - 1;
+        printf("recur2 bx %d, si %d, dx %d\n", bx, si, dx);
+        func4(di, si, dx);
+    }
+    
+}
+
+int main()
+{
+    printf("%d\n", func4(13, 0, 14));
+    
+
+    return 0;
+}

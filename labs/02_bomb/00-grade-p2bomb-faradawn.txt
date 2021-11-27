@@ -1,0 +1,12 @@
+faradawn p2bomb grade: 59/60
+
+bomb24:
+  Phases Defused:   6
+  Explosions:       2
+  Bomb Score:       59
+
+bomb14:
+  Phases Defused:   0
+  Explosions:       10
+  Bomb Score:       0
+
